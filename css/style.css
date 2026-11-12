@@ -91,6 +91,61 @@ header {
     --bs-btn-active-bg: var(--devir-roxo);
     --bs-btn-active-border-color: var(--devir-roxo);
     --bs-btn-focus-shadow-rgb: 78, 73, 105;
+
+    /* Botão de acesso à recepção */
+.btn-devir {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--devir-roxo);
+    --bs-btn-border-color: var(--devir-roxo);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #3c3753;
+    --bs-btn-hover-border-color: #3c3753;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #3c3753;
+    --bs-btn-active-border-color: #3c3753;
+    --bs-btn-focus-shadow-rgb: 78, 73, 105;
+}
+
+/* Menu recolhido em celulares e tablets */
+@media (max-width: 1199.98px) {
+    .navbar-brand img {
+        width: 100px;
+    }
+
+    #menuPrincipal .navbar-nav {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        gap: 8px;
+    }
+
+    #menuPrincipal .btn-devir {
+        display: block;
+        margin-top: 8px;
+    }
+}
+
+/* Ajustes de leitura e espaço em telas pequenas */
+@media (max-width: 767.98px) {
+    main > section.py-5 {
+        padding-top: 32px !important;
+        padding-bottom: 32px !important;
+    }
+
+    #inicio h1 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    #sobre .card-body,
+    #profissionais .card-body {
+        padding: 20px;
+    }
+
+    #contato .btn {
+        display: block;
+        width: 100%;
+    }
+}
 }
 
 /* Rodapé */
