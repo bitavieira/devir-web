@@ -1,0 +1,100 @@
+/* Cores utilizadas no site */
+:root {
+    --devir-roxo: #4e4969;
+    --devir-fundo: #fdf9f4;
+    --devir-texto: #383540;
+    --devir-borda: #dcd7d2;
+}
+
+/* Aparência geral */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--devir-texto);
+    background-color: var(--devir-fundo);
+    line-height: 1.65;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--devir-roxo);
+}
+
+/* Cabeçalho e navegação */
+header {
+    background-color: #fff;
+    border-bottom: 1px solid var(--devir-borda);
+}
+
+.navbar-brand img {
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+}
+
+.nav-link {
+    color: var(--devir-roxo);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible {
+    color: var(--devir-roxo);
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* Seções institucionais */
+#inicio,
+#profissionais {
+    background-color: var(--devir-fundo);
+}
+
+#sobre,
+#contato {
+    background-color: #fff;
+}
+
+.resumo {
+    color: var(--devir-roxo);
+}
+
+/* Cards dos profissionais */
+/* Cards das seções Sobre nós e Profissionais */
+#sobre .card,
+#profissionais .card {
+    border: 1px solid var(--devir-borda);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#sobre .card-body,
+#profissionais .card-body {
+    padding: 24px;
+}
+
+#profissionais .card-img-top {
+    height: 220px;
+    object-fit: contain;
+    padding: 16px;
+    background-color: var(--devir-fundo);
+}
+
+
+/* Botão de contato */
+#contato .btn-outline-primary {
+    --bs-btn-color: var(--devir-roxo);
+    --bs-btn-border-color: var(--devir-roxo);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--devir-roxo);
+    --bs-btn-hover-border-color: var(--devir-roxo);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--devir-roxo);
+    --bs-btn-active-border-color: var(--devir-roxo);
+    --bs-btn-focus-shadow-rgb: 78, 73, 105;
+}
+
+/* Rodapé */
+footer {
+    color: var(--devir-roxo);
+    background-color: var(--devir-fundo);
+}
