@@ -156,7 +156,7 @@ A opção de nota fiscal apenas registra a preferência no cadastro; não realiz
 - [Protótipo no Figma — Serenamente](https://www.figma.com/design/fSQtdVYwjV69m6lyTW7KoT/Serenamente--Copy-)
 - [PRD do projeto](https://drive.google.com/file/d/1omyIDK0qxME6ZHp3aVVPWl7JpHl7g0U6/view)
 - **GitHub Project:** vínculo pendente.
-- **Site publicado:** publicação pendente.
+- **Site publicado:** (https://devir-web.vercel.app/)
 
 ## Equipe
 
