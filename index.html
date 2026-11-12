@@ -6,8 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Devir Espaço Integrado: um espaço para ser, sentir e tornar-se.">
 
     <title>Devir Espaço Integrado | Início</title>
+
+    <link rel="icon" href="assets/img/logo.png">
 
     <!-- Bootstrap primeiro; personalizações depois -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
@@ -22,10 +25,15 @@
         2. Site público
            2.1 Início
            2.2 Sobre nós
-           2.3 Profissionais
-           2.4 Contato e localização
-        3. Login: reservado para a próxima etapa
-        4. Recepção: reservado para a próxima etapa
+           2.3 Especialidades
+           2.4 Profissionais (cards gerados pelo JavaScript)
+           2.5 Contato e localização
+        3. Login da área do funcionário
+        4. Recepção
+           4.1 Aba Agenda (visão do dia e do mês)
+           4.2 Aba Consultas (agendamento e tabela)
+           4.3 Aba Pacientes
+           4.4 Aba Profissionais
         5. Rodapé
         6. Scripts
 
@@ -34,13 +42,13 @@
 
     <!-- #region 1. CABEÇALHO E NAVEGAÇÃO -->
     <header>
-        <nav class="navbar navbar-expand-xl" aria-label="Navegação principal">
+        <nav class="navbar navbar-expand-xl py-1" aria-label="Navegação principal">
 
             <div class="container">
 
                 <!-- Logo da clínica -->
                 <a class="navbar-brand" href="#inicio">
-                    <img src="assets/img/logo.png" alt="Devir Espaço Integrado" width="150">
+                    <img src="assets/img/logo-topo.png" alt="Devir Espaço Integrado" height="52">
                 </a>
 
                 <!-- Botão que abre e fecha o menu de navegação em telas menores -->
@@ -61,6 +69,12 @@
                         </li>
 
                         <li class="nav-item">
+                            <a class="nav-link" href="#especialidades">
+                                Especialidades
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
                             <a class="nav-link" href="#profissionais">
                                 Pessoas que cuidam de pessoas
                             </a>
@@ -73,8 +87,8 @@
                         </li>
 
                         <li class="nav-item ms-xl-3">
-                            <!-- Pendente: conectar ao login quando ele for implementado -->
-                            <a class="btn btn-devir" href="#recepcao">
+                            <!-- O JavaScript abre o login ou a recepção -->
+                            <a class="btn btn-devir" href="#login" id="botao-area-funcionario">
                                 Área do funcionário
                             </a>
                         </li>
@@ -88,379 +102,262 @@
 
     <main>
         <!-- #region 2. SITE PÚBLICO -->
+        <div id="site-publico">
 
-        <!-- #region 2.1 INÍCIO -->
-        <section id="inicio" class="py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
+            <!-- #region 2.1 INÍCIO -->
+            <section id="inicio" class="py-5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8">
 
-                        <h1 class="display-5 fw-bold mb-3">
-                            Um espaço para ser, sentir e tornar-se.
-                        </h1>
+                            <h1 class="display-5 fw-bold mb-3">
+                                Um espaço para ser, sentir e tornar-se.
+                            </h1>
 
-                        <p class="lead mb-4">
-                            Viver é estar em transformação. Entre descobertas,
-                            encontros e recomeços, cada pessoa constrói seu
-                            próprio caminho. A Devir é um convite para acolher
-                            o que você vive hoje e cuidar das possibilidades
-                            que se abrem a partir daqui.
-                        </p>
+                            <p class="lead mb-4">
+                                Viver é estar em transformação. Entre descobertas,
+                                encontros e recomeços, cada pessoa constrói seu
+                                próprio caminho. A Devir é um convite para acolher
+                                o que você vive hoje e cuidar das possibilidades
+                                que se abrem a partir daqui.
+                            </p>
 
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- #endregion -->
-
-        <!-- #region 2.2 SOBRE NÓS -->
-        <section id="sobre" class="py-5">
-            <div class="container">
-
-                <h2 class="mb-4">Sobre nós</h2>
-
-                <div class="row g-4">
-
-                    <!-- Nossa Essência -->
-                    <article class="essencia col-md-6">
-                        <div class="card h-100">
-                            <div class="card-body">
-
-                                <h3 class="h4 mb-3">Nossa Essência</h3>
-
-                                <p class="resumo fw-semibold">
-                                    Nossa essência está no tornar-se.
-                                </p>
-
-                                <p class="texto-essencia">
-                                    Devir é movimento: o processo contínuo de
-                                    nos tornarmos quem somos, nas relações,
-                                    nas experiências e nas mudanças da vida.
-                                </p>
-
-                                <p class="texto-essencia">
-                                    Esse conceito inspira a Devir Espaço
-                                    Integrado. Acreditamos em um cuidado que
-                                    considera sua história, acolhe o presente
-                                    e respeita o seu tempo.
-                                </p>
-
-                                <p class="texto-essencia mb-0">
-                                    Aqui, há espaço para dúvidas, descobertas,
-                                    pausas e novos caminhos. Um espaço para
-                                    você se reconhecer e construir, com apoio,
-                                    suas próprias possibilidades.
-                                </p>
-
+                            <div class="d-flex flex-wrap gap-2">
+                                <a href="#contato" class="btn btn-devir btn-lg">Agende uma conversa</a>
+                                <a href="#profissionais" class="btn btn-outline-devir btn-lg">Conheça a equipe</a>
                             </div>
+
                         </div>
-                    </article>
+                    </div>
+                </div>
+            </section>
+            <!-- #endregion -->
 
-                    <!-- Nosso cuidado -->
-                    <article class="valores col-md-6">
-                        <div class="card h-100">
-                            <div class="card-body">
+            <!-- #region 2.2 SOBRE NÓS -->
+            <section id="sobre" class="py-5">
+                <div class="container">
 
-                                <h3 class="h4 mb-3">Nosso cuidado</h3>
+                    <h2 class="mb-4">Sobre nós</h2>
 
-                                <p class="resumo fw-semibold">
-                                    Cada história tem seu tempo.
-                                </p>
+                    <div class="row g-4">
 
-                                <p class="texto-valores">
-                                    Há momentos de seguir, momentos de parar
-                                    e momentos em que precisamos de companhia
-                                    para compreender o que estamos vivendo.
-                                </p>
+                        <!-- Nossa Essência -->
+                        <article class="essencia col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
 
-                                <p class="texto-valores mb-0">
-                                    Nossa proposta é oferecer escuta e
-                                    acolhimento, com atenção à singularidade
-                                    de cada pessoa e às diferentes dimensões
-                                    de sua vida.
-                                </p>
+                                    <h3 class="h4 mb-3">Nossa Essência</h3>
 
+                                    <p class="resumo fw-semibold">
+                                        Nossa essência está no tornar-se.
+                                    </p>
+
+                                    <p class="texto-essencia">
+                                        Devir é movimento: o processo contínuo de
+                                        nos tornarmos quem somos, nas relações,
+                                        nas experiências e nas mudanças da vida.
+                                    </p>
+
+                                    <p class="texto-essencia">
+                                        Esse conceito inspira a Devir Espaço
+                                        Integrado. Acreditamos em um cuidado que
+                                        considera sua história, acolhe o presente
+                                        e respeita o seu tempo.
+                                    </p>
+
+                                    <p class="texto-essencia mb-0">
+                                        Aqui, há espaço para dúvidas, descobertas,
+                                        pausas e novos caminhos. Um espaço para
+                                        você se reconhecer e construir, com apoio,
+                                        suas próprias possibilidades.
+                                    </p>
+
+                                </div>
                             </div>
+                        </article>
+
+                        <!-- Nosso cuidado -->
+                        <article class="valores col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body">
+
+                                    <h3 class="h4 mb-3">Nosso cuidado</h3>
+
+                                    <p class="resumo fw-semibold">
+                                        Cada história tem seu tempo.
+                                    </p>
+
+                                    <p class="texto-valores">
+                                        Há momentos de seguir, momentos de parar
+                                        e momentos em que precisamos de companhia
+                                        para compreender o que estamos vivendo.
+                                    </p>
+
+                                    <p class="texto-valores mb-0">
+                                        Nossa proposta é oferecer escuta e
+                                        acolhimento, com atenção à singularidade
+                                        de cada pessoa e às diferentes dimensões
+                                        de sua vida.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+                </div>
+            </section>
+            <!-- #endregion -->
+
+            <!-- #region 2.3 ESPECIALIDADES -->
+            <section id="especialidades" class="py-5">
+                <div class="container">
+
+                    <h2 class="mb-4">Especialidades</h2>
+
+                    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
+
+                        <div class="col">
+                            <article class="card h-100 card-especialidade">
+                                <div class="card-body">
+                                    <h3 class="h5">Psicologia</h3>
+                                    <p class="card-text mb-0">
+                                        Psicoterapia para crianças, adolescentes e adultos,
+                                        com escuta e acolhimento.
+                                    </p>
+                                </div>
+                            </article>
                         </div>
-                    </article>
 
-                </div>
-            </div>
-        </section>
-        <!-- #endregion -->
+                        <div class="col">
+                            <article class="card h-100 card-especialidade">
+                                <div class="card-body">
+                                    <h3 class="h5">Psicopedagogia</h3>
+                                    <p class="card-text mb-0">
+                                        Apoio aos processos de aprendizagem na escola
+                                        e na vida.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
 
-        <!-- #region 2.3 PROFISSIONAIS -->
-        <section id="profissionais" class="py-5">
-            <div class="container">
+                        <div class="col">
+                            <article class="card h-100 card-especialidade">
+                                <div class="card-body">
+                                    <h3 class="h5">Fonoaudiologia</h3>
+                                    <p class="card-text mb-0">
+                                        Cuidado com a comunicação, a fala, a linguagem
+                                        e a voz.
+                                    </p>
+                                </div>
+                            </article>
+                        </div>
 
-                <h2 class="mb-4">
-                    Pessoas que cuidam de pessoas
-                </h2>
-
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-
-                    <!-- Profissional 1 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 1">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 1
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 2 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 2">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 2
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 3 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 3">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 3
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 4 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 4">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 4
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 5 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 5">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 5
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 6 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 6">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 6
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 7 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 7">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 7
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 8 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 8">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 8
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 9 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 9">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 9
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <!-- Profissional 10 -->
-                    <div class="col">
-                        <article class="card h-100">
-                            <img src="assets/img/perfil.png" class="card-img-top" alt="Foto do profissional 10">
-
-                            <div class="card-body">
-                                <h3 class="card-title h5">
-                                    Nome do profissional 10
-                                </h3>
-                                <p class="card-text">
-                                    Especialidade e registro profissional.
-                                </p>
-                                <p class="card-text">
-                                    Informações adicionais sobre sua atuação.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <!-- #endregion -->
-
-        <!-- #region 2.4 CONTATO E LOCALIZAÇÃO -->
-        <section id="contato" class="py-5">
-            <div class="container">
-
-                <h2 class="mb-3">Fale Conosco</h2>
-
-                <p class="lead mb-4">
-                    Entre em contato para conhecer nossos atendimentos
-                    e tirar suas dúvidas.
-                </p>
-
-                <div class="row g-4">
-
-                    <!-- Coluna 1: informações de contato -->
-                    <div class="col-md-6">
-
-                        <h3 class="h4 mb-3">Vamos conversar?</h3>
-
-                        <p>
-                            Nossa equipe está disponível para orientar você
-                            sobre os profissionais e o agendamento.
-                        </p>
-
-                        <address class="mb-4">
-                            <strong>Endereço:</strong>
-                            <span>
-                                Edifício Multiplace — 2º andar, sala 214.
-                            </span>
-
-                            <br>
-
-                            <strong>Telefone:</strong>
-                            <span>(75) 99991-9422</span>
-                        </address>
-
-                        <p class="mb-4">
-                            <strong>Horário de atendimento:</strong>
-                            Horário comercial.
-                        </p>
-
-                        <a href="https://wa.me/5575999919422" class="btn btn-outline-primary" target="_blank"
-                            rel="noopener noreferrer">
-                            Conversar pelo WhatsApp
-                        </a>
-
-                    </div>
-
-                    <!-- Coluna 2: localização ao lado das informações -->
-                    <div class="col-md-6">
-
-                        <h3 class="h4 mb-3">Onde estamos</h3>
-
-                        <!-- Pendente: substituir pelo iframe do Google Maps -->
-                        <div class="ratio ratio-4x3">
-                            <div
-                                class="bg-body-tertiary border rounded d-flex align-items-center justify-content-center">
-                                <p class="text-body-secondary text-center p-3 mb-0">
-                                    Mapa da localização da clínica
-                                </p>
-                            </div>
+                        <div class="col">
+                            <article class="card h-100 card-especialidade">
+                                <div class="card-body">
+                                    <h3 class="h5">Terapia Ocupacional</h3>
+                                    <p class="card-text mb-0">
+                                        Autonomia e qualidade de vida nas atividades
+                                        do dia a dia.
+                                    </p>
+                                </div>
+                            </article>
                         </div>
 
                     </div>
+                </div>
+            </section>
+            <!-- #endregion -->
+
+            <!-- #region 2.4 PROFISSIONAIS -->
+            <section id="profissionais" class="py-5">
+                <div class="container">
+
+                    <h2 class="mb-4">
+                        Pessoas que cuidam de pessoas
+                    </h2>
+
+                    <!-- Os cards são criados pelo JavaScript a partir dos
+                         profissionais cadastrados na recepção -->
+                    <div id="cards-profissionais" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
+
+                    <p id="sem-profissionais" class="text-body-secondary" hidden>
+                        Em breve apresentaremos nossa equipe.
+                    </p>
 
                 </div>
-            </div>
-        </section>
+            </section>
+            <!-- #endregion -->
+
+            <!-- #region 2.5 CONTATO E LOCALIZAÇÃO -->
+            <section id="contato" class="py-5">
+                <div class="container">
+
+                    <h2 class="mb-3">Fale Conosco</h2>
+
+                    <p class="lead mb-4">
+                        Entre em contato para conhecer nossos atendimentos
+                        e tirar suas dúvidas.
+                    </p>
+
+                    <div class="row g-4">
+
+                        <!-- Coluna 1: informações de contato -->
+                        <div class="col-md-6">
+
+                            <h3 class="h4 mb-3">Vamos conversar?</h3>
+
+                            <p>
+                                Nossa equipe está disponível para orientar você
+                                sobre os profissionais e o agendamento.
+                            </p>
+
+                            <address class="mb-4">
+                                <strong>Endereço:</strong>
+                                <span>
+                                    Edifício Multiplace — 2º andar, sala 214.
+                                    Feira de Santana — BA.
+                                </span>
+
+                                <br>
+
+                                <strong>Telefone:</strong>
+                                <a href="tel:+5575999919422">(75) 99991-9422</a>
+                            </address>
+
+                            <p class="mb-4">
+                                <strong>Horário de atendimento:</strong>
+                                segunda a sexta, em horário comercial.
+                            </p>
+
+                            <a href="https://wa.me/5575999919422" class="btn btn-outline-devir" target="_blank"
+                                rel="noopener noreferrer">
+                                Conversar pelo WhatsApp
+                            </a>
+
+                        </div>
+
+                        <!-- Coluna 2: localização ao lado das informações -->
+                        <div class="col-md-6">
+
+                            <h3 class="h4 mb-3">Onde estamos</h3>
+
+                            <div class="ratio ratio-4x3 mapa">
+                                <iframe
+                                    src="https://maps.google.com/maps?q=Edif%C3%ADcio%20Multiplace%2C%20Feira%20de%20Santana%20-%20BA&z=16&output=embed"
+                                    title="Mapa da localização da Devir Espaço Integrado" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- #endregion -->
+
+        </div>
         <!-- #endregion -->
 
         <!-- #region 3. LOGIN -->
@@ -470,10 +367,10 @@
                     <div class="col-md-8 col-lg-5">
                         <div class="card">
                             <div class="card-body p-4">
-                                <h2 class="h3 mb-3">Área do funcionário</h2>
+                                <h2 class="h3 mb-3" id="titulo-login" tabindex="-1">Área do funcionário</h2>
                                 <p>Informe seus dados para acessar a recepção.</p>
 
-                                <form id="form-login">
+                                <form id="form-login" novalidate>
                                     <div class="mb-3">
                                         <label for="usuario-login" class="form-label">
                                             Usuário
@@ -501,6 +398,11 @@
                                     <button type="button" id="voltar-site" class="btn btn-link w-100 mt-2">
                                         Voltar ao site
                                     </button>
+
+                                    <p class="small text-body-secondary text-center mt-3 mb-0">
+                                        Acesso de demonstração: usuário <strong>recepcao</strong>,
+                                        senha <strong>devir123</strong>.
+                                    </p>
                                 </form>
                             </div>
                         </div>
@@ -521,22 +423,410 @@
                         <p class="mb-0">Cadastros e organização dos atendimentos.</p>
                     </div>
 
-                    <button type="button" id="sair-recepcao" class="btn btn-outline-secondary">
-                        Sair
-                    </button>
+                    <div class="d-flex gap-2">
+                        <button type="button" id="ver-site" class="btn btn-outline-devir">
+                            Ver site
+                        </button>
+                        <button type="button" id="sair-recepcao" class="btn btn-outline-secondary">
+                            Sair
+                        </button>
+                    </div>
                 </div>
 
-                <!-- 4.1 Formulário e lista de profissionais -->
+                <!-- Mensagem de sucesso ou erro exibida após cada ação -->
+                <div id="mensagem" class="alert" role="status" hidden></div>
 
-                <!-- 4.2 Formulário e lista de pacientes -->
+                <!-- Resumo rápido -->
+                <div class="row row-cols-2 row-cols-md-4 g-3 mb-4">
+                    <div class="col">
+                        <div class="painel-numero">
+                            <span id="total-profissionais">0</span>
+                            <small>Profissionais</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="painel-numero">
+                            <span id="total-pacientes">0</span>
+                            <small>Pacientes</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="painel-numero">
+                            <span id="total-hoje">0</span>
+                            <small>Consultas hoje</small>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="painel-numero">
+                            <span id="total-agendadas">0</span>
+                            <small>Agendadas</small>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- 4.3 Formulário de agendamento -->
+                <!-- Abas da recepção -->
+                <ul class="nav nav-tabs abas-recepcao mb-4" id="abas-recepcao" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="aba-agenda" data-bs-toggle="tab" data-bs-target="#painel-agenda"
+                            type="button" role="tab" aria-controls="painel-agenda" aria-selected="true">
+                            Agenda
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="aba-consultas" data-bs-toggle="tab" data-bs-target="#painel-consultas"
+                            type="button" role="tab" aria-controls="painel-consultas" aria-selected="false">
+                            Consultas
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="aba-pacientes" data-bs-toggle="tab" data-bs-target="#painel-pacientes"
+                            type="button" role="tab" aria-controls="painel-pacientes" aria-selected="false">
+                            Pacientes
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="aba-profissionais" data-bs-toggle="tab"
+                            data-bs-target="#painel-profissionais" type="button" role="tab"
+                            aria-controls="painel-profissionais" aria-selected="false">
+                            Profissionais
+                        </button>
+                    </li>
+                </ul>
 
-                <!-- 4.4 Tabela de consultas -->
+                <div class="tab-content">
+
+                    <!-- 4.1 Agenda multidisciplinar (dia e mês) -->
+                    <div class="tab-pane fade show active" id="painel-agenda" role="tabpanel" aria-labelledby="aba-agenda"
+                        tabindex="0">
+                        <div class="card card-recepcao">
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                                    <!-- Escolha entre a visão do dia e a do mês -->
+                                    <div class="btn-group me-md-2" role="group" aria-label="Visão da agenda">
+                                        <button type="button" class="btn btn-outline-devir active" id="visao-dia-btn"
+                                            aria-pressed="true">Dia</button>
+                                        <button type="button" class="btn btn-outline-devir" id="visao-mes-btn"
+                                            aria-pressed="false">Mês</button>
+                                    </div>
+
+                                    <button type="button" id="dia-anterior" class="btn btn-outline-devir"
+                                        aria-label="Anterior">&lsaquo;</button>
+                                    <input type="date" id="agenda-dia" class="form-control w-auto"
+                                        aria-label="Dia da agenda">
+                                    <button type="button" id="dia-seguinte" class="btn btn-outline-devir"
+                                        aria-label="Próximo">&rsaquo;</button>
+                                    <button type="button" id="dia-hoje" class="btn btn-outline-secondary">Hoje</button>
+
+                                    <select id="agenda-filtro-especialidade" class="form-select w-auto ms-md-auto"
+                                        aria-label="Filtrar profissionais por especialidade">
+                                        <option value="todas">Todas as especialidades</option>
+                                    </select>
+                                </div>
+
+                                <h3 class="h5 mb-1" id="titulo-dia"></h3>
+                                <p class="small text-body-secondary mb-3" id="resumo-dia"></p>
+
+                                <!-- Visão do mês: um quadro por dia -->
+                                <div id="visao-mes" class="table-responsive" hidden>
+                                    <table class="table table-bordered calendario-mes mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Dom</th>
+                                                <th scope="col">Seg</th>
+                                                <th scope="col">Ter</th>
+                                                <th scope="col">Qua</th>
+                                                <th scope="col">Qui</th>
+                                                <th scope="col">Sex</th>
+                                                <th scope="col">Sáb</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="calendario-corpo"></tbody>
+                                    </table>
+                                    <p class="small text-body-secondary mt-3 mb-0">
+                                        Clique em um dia para abrir a agenda daquele dia.
+                                    </p>
+                                </div>
+
+                                <!-- Visão do dia: horários x profissionais -->
+                                <div id="visao-dia">
+                                <div class="table-responsive agenda-grade">
+                                    <table class="table table-bordered align-middle mb-0">
+                                        <thead id="agenda-cabecalho"></thead>
+                                        <tbody id="agenda-corpo"></tbody>
+                                    </table>
+                                </div>
+
+                                <p id="agenda-sem-profissionais" class="text-body-secondary mt-3 mb-0" hidden>
+                                    Cadastre um profissional para montar a agenda.
+                                </p>
+
+                                <p class="small text-body-secondary mt-3 mb-0">
+                                    Clique em um horário livre para agendar com aquele profissional.
+                                </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4.2 Agendamento e tabela de consultas -->
+                    <div class="tab-pane fade" id="painel-consultas" role="tabpanel" aria-labelledby="aba-consultas"
+                        tabindex="0">
+                        <div class="card card-recepcao mb-4">
+                            <div class="card-body">
+                                <h3 class="h5 mb-3">Agendar consulta</h3>
+
+                                <form id="form-agendamento" class="row g-3 align-items-start" novalidate>
+                                    <div class="col-md-6 col-lg-3">
+                                        <label for="agenda-paciente" class="form-label">Paciente</label>
+                                        <select id="agenda-paciente" class="form-select" required></select>
+                                        <div class="invalid-feedback">Selecione o paciente.</div>
+                                    </div>
+
+                                    <div class="col-md-6 col-lg-3">
+                                        <label for="agenda-profissional" class="form-label">Profissional</label>
+                                        <select id="agenda-profissional" class="form-select" required></select>
+                                        <div class="invalid-feedback">Selecione o profissional.</div>
+                                    </div>
+
+                                    <div class="col-sm-6 col-lg-2">
+                                        <label for="agenda-data" class="form-label">Data</label>
+                                        <input type="date" id="agenda-data" class="form-control" required>
+                                        <div class="invalid-feedback" id="erro-agenda-data">
+                                            Informe a data.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6 col-lg-2">
+                                        <label for="agenda-horario" class="form-label">Horário</label>
+                                        <input type="time" id="agenda-horario" class="form-control" min="07:00"
+                                            max="19:00" step="1800" required>
+                                        <div class="invalid-feedback" id="erro-agenda-horario">
+                                            Informe o horário.
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-2 d-grid botao-agendar">
+                                        <button type="submit" class="btn btn-devir">Agendar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card card-recepcao">
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                                    <h3 class="h5 mb-0">Consultas</h3>
+
+                                    <select id="filtro-status" class="form-select w-auto"
+                                        aria-label="Filtrar consultas por status">
+                                        <option value="todas">Todas</option>
+                                        <option value="Agendado">Agendadas</option>
+                                        <option value="Concluído">Concluídas</option>
+                                    </select>
+                                </div>
+
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Data</th>
+                                                <th scope="col">Horário</th>
+                                                <th scope="col">Paciente</th>
+                                                <th scope="col">Profissional</th>
+                                                <th scope="col">Status</th>
+                                                <th scope="col" class="text-end">Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tabela-consultas"></tbody>
+                                    </table>
+                                </div>
+
+                                <p id="sem-consultas" class="text-body-secondary mt-3 mb-0" hidden>
+                                    Nenhuma consulta encontrada.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4.3 Pacientes -->
+                    <div class="tab-pane fade" id="painel-pacientes" role="tabpanel" aria-labelledby="aba-pacientes"
+                        tabindex="0">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="card card-recepcao h-100">
+                                    <div class="card-body">
+                                        <h3 class="h5 mb-3">Cadastrar paciente</h3>
+
+                                        <form id="form-paciente" novalidate>
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-sm-7">
+                                            <label for="nome-paciente" class="form-label">Nome completo</label>
+                                            <input type="text" id="nome-paciente" class="form-control" required>
+                                            <div class="invalid-feedback">Informe o nome do paciente.</div>
+                                        </div>
+
+                                        <div class="col-sm-5">
+                                            <label for="nascimento-paciente" class="form-label">
+                                                Data de nascimento
+                                            </label>
+                                            <input type="date" id="nascimento-paciente" class="form-control" required>
+                                            <div class="invalid-feedback" id="erro-nascimento">
+                                                Informe uma data válida.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <p id="idade-paciente" class="small mb-3" hidden></p>
+
+                                    <!-- Aparece apenas para menores de 18 anos -->
+                                    <div id="grupo-responsavel" class="mb-3" hidden>
+                                        <label for="responsavel-paciente" class="form-label">
+                                            Nome do responsável
+                                        </label>
+                                        <input type="text" id="responsavel-paciente" class="form-control">
+                                        <div class="invalid-feedback">
+                                            Paciente menor de 18 anos: informe o responsável.
+                                        </div>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-sm-6">
+                                            <label for="modalidade-paciente" class="form-label">Modalidade</label>
+                                            <select id="modalidade-paciente" class="form-select" required>
+                                                <option value="">Selecione</option>
+                                                <option>Presencial</option>
+                                                <option>Online</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecione a modalidade.</div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="valor-paciente" class="form-label">
+                                                Valor da sessão (R$)
+                                            </label>
+                                            <input type="number" id="valor-paciente" class="form-control" min="0"
+                                                step="0.01" placeholder="0,00" required>
+                                            <div class="invalid-feedback">Informe um valor maior que zero.</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-check mb-3">
+                                        <input class="form-check-input" type="checkbox" id="nota-paciente">
+                                        <label class="form-check-label" for="nota-paciente">
+                                            Deseja nota fiscal
+                                        </label>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="observacoes-paciente" class="form-label">Observações</label>
+                                        <textarea id="observacoes-paciente" class="form-control" rows="2"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-devir">Salvar paciente</button>
+                                </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card card-recepcao h-100">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+                                            <h3 class="h5 mb-0">Pacientes cadastrados</h3>
+                                            <input type="search" id="busca-paciente" class="form-control w-auto"
+                                                placeholder="Buscar por nome" aria-label="Buscar paciente">
+                                        </div>
+                                        <ul id="lista-pacientes" class="list-group lista-cadastro"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4.4 Profissionais -->
+                    <div class="tab-pane fade" id="painel-profissionais" role="tabpanel"
+                        aria-labelledby="aba-profissionais" tabindex="0">
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="card card-recepcao h-100">
+                                    <div class="card-body">
+                                        <h3 class="h5 mb-3">Cadastrar profissional</h3>
+
+                                        <form id="form-profissional" novalidate>
+                                    <div class="mb-3">
+                                        <label for="nome-profissional" class="form-label">Nome completo</label>
+                                        <input type="text" id="nome-profissional" class="form-control" required>
+                                        <div class="invalid-feedback">Informe o nome do profissional.</div>
+                                    </div>
+
+                                    <div class="row g-3 mb-3">
+                                        <div class="col-sm-6">
+                                            <label for="especialidade-profissional" class="form-label">
+                                                Especialidade
+                                            </label>
+                                            <select id="especialidade-profissional" class="form-select" required>
+                                                <option value="">Selecione</option>
+                                                <option>Psicologia</option>
+                                                <option>Psicopedagogia</option>
+                                                <option>Fonoaudiologia</option>
+                                                <option>Terapia Ocupacional</option>
+                                                <option>Neuropsicologia</option>
+                                                <option>Psiquiatria</option>
+                                            </select>
+                                            <div class="invalid-feedback">Selecione a especialidade.</div>
+                                        </div>
+
+                                        <div class="col-sm-6">
+                                            <label for="registro-profissional" class="form-label">
+                                                Registro profissional
+                                            </label>
+                                            <input type="text" id="registro-profissional" class="form-control"
+                                                placeholder="Ex.: CRP 03/12345" required>
+                                            <div class="invalid-feedback">Informe o registro (CRP, CRM, CRFa...).</div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-devir">Salvar profissional</button>
+                                </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="card card-recepcao h-100">
+                                    <div class="card-body">
+                                        <h3 class="h5 mb-3">Profissionais cadastrados</h3>
+                                        <ul id="lista-profissionais" class="list-group lista-cadastro"></ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
         <!-- #endregion -->
     </main>
+
+    <!-- Janela de confirmação usada nas exclusões -->
+    <div class="modal fade" id="janela-confirmacao" tabindex="-1" aria-labelledby="titulo-confirmacao" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title h5" id="titulo-confirmacao">Confirmar exclusão</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="texto-confirmacao" class="mb-0"></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="botao-confirmar">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- #region 5. RODAPÉ -->
     <footer class="py-4 border-top">

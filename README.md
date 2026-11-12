@@ -4,7 +4,7 @@ Projeto acadêmico de desenvolvimento Front-End para a disciplina de **Programa�
 
 A proposta é reunir um site institucional da Devir Espaço Integrado e um painel de recepção em uma única página, permitindo demonstrar cadastros e agendamentos com HTML, CSS e JavaScript.
 
-> **Status:** em desenvolvimento. As funcionalidades abaixo representam o escopo planejado e serão marcadas conforme forem implementadas e verificadas.
+> **Status:** MVP concluído. Todas as funcionalidades abaixo foram implementadas e testadas.
 
 ## Objetivo
 
@@ -22,30 +22,38 @@ Desenvolver uma interface responsiva e funcional, aplicando os conteúdos estuda
 - **Git e GitHub:** versionamento e armazenamento do código.
 - **Figma:** referência de interface.
 
-## Funcionalidades planejadas
+## Funcionalidades
 
 ### Site institucional
 
-- [ ] Apresentação da clínica e seção sobre.
-- [ ] Cards de especialidades e profissionais.
-- [ ] Informações de contato, mapa e acesso ao WhatsApp.
-- [ ] Atalho para a recepção na própria página.
+- [x] Apresentação da clínica e seção sobre.
+- [x] Cards de especialidades e profissionais (os cards de profissionais são gerados a partir dos cadastros da recepção).
+- [x] Informações de contato, mapa e acesso ao WhatsApp.
+- [x] Atalho para a recepção na própria página (botão **Área do funcionário**).
 
 ### Painel da recepção
 
-- [ ] Cadastro de profissionais com nome, registro e especialidade.
-- [ ] Cadastro de pacientes com nome e data de nascimento.
-- [ ] Cálculo da idade considerando a data completa de nascimento.
-- [ ] Exibição e preenchimento obrigatório do responsável para menores de 18 anos.
-- [ ] Registro da opção de nota fiscal, modalidade de atendimento, valor da sessão e observações.
-- [ ] Agendamento com paciente, profissional, data e horário.
-- [ ] Exibição das consultas em uma tabela dinâmica.
-- [ ] Alteração do status entre Agendado e Concluído.
-- [ ] Recuperação dos cadastros e agendamentos após recarregar a página.
+- [x] Login de demonstração (usuário `recepcao`, senha `devir123`).
+- [x] Recepção organizada em abas: **Agenda**, **Consultas**, **Pacientes** e **Profissionais**.
+- [x] Agenda multidisciplinar com duas visões:
+  - **Dia:** grade com horários (07:00–19:00, de 30 em 30 minutos) por profissional e agendamento com um clique no horário livre.
+  - **Mês:** calendário com as consultas de cada dia; clicar em um dia abre a visão do dia.
+  - Navegação entre dias ou meses e filtro por especialidade.
+- [x] Cadastro de profissionais com nome, registro e especialidade.
+- [x] Cadastro de pacientes com nome e data de nascimento, com busca por nome.
+- [x] Cálculo da idade considerando a data completa de nascimento.
+- [x] Exibição e preenchimento obrigatório do responsável para menores de 18 anos.
+- [x] Registro da opção de nota fiscal, modalidade de atendimento, valor da sessão e observações.
+- [x] Agendamento com paciente, profissional, data e horário (bloqueia datas e horários passados, horário fora do expediente ou fora da grade de 30 minutos e conflitos de horário).
+- [x] Exibição das consultas em uma tabela dinâmica, com filtro por status.
+- [x] Alteração do status entre Agendado e Concluído.
+- [x] Recuperação dos cadastros e agendamentos após recarregar a página.
 
-O PRD utiliza o termo “médicos” e solicita CRM. Como a proposta da clínica também inclui outros profissionais, a nomenclatura e o campo de registro profissional deverão ser alinhados antes da implementação.
+O PRD utiliza o termo “médicos” e solicita CRM. Como a clínica também reúne outras áreas, o sistema usa **profissionais** e um campo de **registro profissional** (CRP, CRM, CRFa etc.).
 
-## Estrutura planejada
+No primeiro acesso, o sistema cria três profissionais fictícios para que o site não fique vazio. Eles podem ser excluídos na recepção.
+
+## Estrutura
 
 ```text
 devir-web/
@@ -65,15 +73,13 @@ devir-web/
 | `index.html` | Site público e seção da recepção, com formulários e tabela. |
 | `css/style.css` | Variáveis de cores, estilos próprios e media queries. |
 | `js/script.js` | Eventos, validações, cadastros, agendamentos e persistência. |
-| `assets/img/` | Logo e imagens utilizadas no projeto. |
+| `assets/img/` | Logo original (`logo.png`, usada como ícone da aba) e versão recortada para o topo (`logo-topo.png`). |
 | `README.md` | Documentação e orientações de uso. |
 | `.gitignore` | Exclusão de arquivos temporários e configurações locais desnecessárias. |
 
-O acesso à recepção será feito dentro do próprio `index.html`. O MVP não prevê uma página de login ou autenticação.
+O acesso à recepção é feito dentro do próprio `index.html`. O login é apenas uma demonstração no navegador (não há servidor nem segurança real).
 
 ## Como executar localmente
-
-Estas instruções se aplicam quando os arquivos da aplicação estiverem disponíveis no repositório.
 
 1. Clone o repositório:
 
@@ -89,26 +95,38 @@ Não há etapa de build ou instalação de pacotes do projeto. O carregamento do
 
 ## Conteúdos de JavaScript
 
-A implementação deverá demonstrar:
+Onde cada conteúdo aparece no `js/script.js`:
 
 | Conteúdo | Aplicação prevista |
 | --- | --- |
-| `if/else` | Regra de responsável para pacientes menores de idade. |
-| `switch/case` | Tratamento da apresentação dos status das consultas. |
-| `for` | Percorrer consultas para preencher a tabela. |
-| Funções | Organizar cálculo de idade, cadastros e renderização. |
-| `getElementById` | Acessar elementos da interface. |
-| Eventos | Capturar envio de formulários e alterações nos campos. |
-| LocalStorage e JSON | Salvar e recuperar os dados no navegador. |
+| `if/else` | `verificarIdade()` e `cadastrarPaciente()`: regra do responsável para menores de 18 anos. |
+| `switch/case` | `aparenciaStatus()`: cor do status e texto do botão. |
+| `for` | `renderizarTabela()` e `renderizarAgendaDia()`: percorrem consultas, horários e profissionais para montar a tabela e a grade. |
+| Funções | `calcularIdade()`, `cadastrarProfissional()`, `agendarConsulta()`, `renderizarTabela()`... |
+| `getElementById` | Usado em todo o arquivo para acessar campos, listas e a tabela. |
+| Eventos | `submit` dos formulários, `change` na data de nascimento e no filtro, `click` nos botões. |
+| LocalStorage e JSON | `salvarLista()` (`JSON.stringify`) e `carregarLista()` (`JSON.parse`). |
+
+## Roteiro da apresentação
+
+1. Mostrar o site: Sobre nós, Especialidades, Profissionais, Fale Conosco (mapa e WhatsApp) e o menu no celular.
+2. Clicar em **Área do funcionário**, errar a senha (mensagem de erro) e entrar com `recepcao` / `devir123`.
+3. Na aba **Profissionais**, cadastrar um profissional e clicar em **Ver site** para mostrar o novo card.
+4. Na aba **Pacientes**, cadastrar um paciente **menor de idade**: o campo do responsável aparece e é obrigatório.
+5. Cadastrar um paciente adulto com nota fiscal e observações e mostrar a busca por nome.
+6. Na aba **Agenda** (visão **Dia**), clicar num horário livre: a aba **Consultas** abre com profissional, data e horário preenchidos.
+7. Agendar e tentar repetir o mesmo horário para o mesmo profissional (o sistema bloqueia).
+8. Voltar à agenda, trocar para a visão **Mês**, clicar no dia da consulta, concluí-la, **recarregar a página** e mostrar que tudo continua salvo.
+9. Abrir o `script.js` e mostrar os trechos da tabela acima.
 
 ## Validação da entrega
 
-- [ ] Validar os formulários e as regras de idade.
-- [ ] Executar o fluxo completo: cadastrar profissional, cadastrar paciente e agendar consulta.
-- [ ] Alterar o status e verificar sua persistência após recarregar.
-- [ ] Testar o layout em computador, tablet e smartphone.
-- [ ] Conferir imagens, links, navegação e mensagens.
-- [ ] Verificar se o fluxo demonstrado apresenta erros no console.
+- [x] Validar os formulários e as regras de idade.
+- [x] Executar o fluxo completo: cadastrar profissional, cadastrar paciente e agendar consulta.
+- [x] Alterar o status e verificar sua persistência após recarregar.
+- [x] Testar o layout em computador, tablet e smartphone.
+- [x] Conferir imagens, links, navegação e mensagens.
+- [x] Verificar se o fluxo demonstrado apresenta erros no console.
 - [ ] Publicar a aplicação e testar o endereço público.
 - [ ] Preparar slides com telas, trechos de código e explicação das funcionalidades.
 

@@ -1,12 +1,17 @@
 /* Cores utilizadas no site */
 :root {
     --devir-roxo: #4e4969;
+    --devir-roxo-escuro: #3c3753;
     --devir-fundo: #fdf9f4;
     --devir-texto: #383540;
     --devir-borda: #dcd7d2;
 }
 
 /* Aparência geral */
+html {
+    scroll-padding-top: 80px;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--devir-texto);
@@ -16,20 +21,32 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
+    color: var(--devir-roxo);
+}
+
+a {
     color: var(--devir-roxo);
 }
 
 /* Cabeçalho e navegação */
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1020;
     background-color: #fff;
     border-bottom: 1px solid var(--devir-borda);
 }
 
+.navbar-brand {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
 .navbar-brand img {
-    width: 150px;
-    max-width: 100%;
-    height: auto;
+    height: 52px;
+    width: auto;
 }
 
 .nav-link {
@@ -45,23 +62,30 @@ header {
 
 /* Seções institucionais */
 #inicio,
+#especialidades,
+#contato {
+    background-color: #fff;
+}
+
+#sobre,
 #profissionais {
     background-color: var(--devir-fundo);
 }
 
-#sobre,
-#contato {
-    background-color: #fff;
+#inicio {
+    padding-top: 72px !important;
+    padding-bottom: 72px !important;
 }
 
 .resumo {
     color: var(--devir-roxo);
 }
 
-/* Cards dos profissionais */
-/* Cards das seções Sobre nós e Profissionais */
+/* Cards das seções Sobre nós, Especialidades e Profissionais */
 #sobre .card,
-#profissionais .card {
+#especialidades .card,
+#profissionais .card,
+.card-recepcao {
     border: 1px solid var(--devir-borda);
     border-radius: 12px;
     overflow: hidden;
@@ -72,16 +96,66 @@ header {
     padding: 24px;
 }
 
-#profissionais .card-img-top {
-    height: 220px;
-    object-fit: contain;
-    padding: 16px;
-    background-color: var(--devir-fundo);
+.card-especialidade {
+    border-top: 4px solid var(--devir-roxo) !important;
 }
 
+#profissionais .avatar-area {
+    display: flex;
+    justify-content: center;
+    padding: 28px 16px 8px;
+}
 
-/* Botão de contato */
-#contato .btn-outline-primary {
+#profissionais .avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    background-color: var(--devir-roxo);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#profissionais .card-body {
+    text-align: center;
+}
+
+.especialidade-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    background-color: var(--devir-fundo);
+    border: 1px solid var(--devir-borda);
+    color: var(--devir-roxo);
+    font-size: 0.85rem;
+}
+
+/* Mapa */
+.mapa iframe {
+    border: 0;
+    border-radius: 12px;
+}
+
+/* Botão principal (roxo preenchido) */
+.btn-devir {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--devir-roxo);
+    --bs-btn-border-color: var(--devir-roxo);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--devir-roxo-escuro);
+    --bs-btn-hover-border-color: var(--devir-roxo-escuro);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--devir-roxo-escuro);
+    --bs-btn-active-border-color: var(--devir-roxo-escuro);
+    --bs-btn-focus-shadow-rgb: 78, 73, 105;
+}
+
+/* Botão secundário (contorno roxo) */
+.btn-outline-devir {
     --bs-btn-color: var(--devir-roxo);
     --bs-btn-border-color: var(--devir-roxo);
     --bs-btn-hover-color: #fff;
@@ -91,25 +165,150 @@ header {
     --bs-btn-active-bg: var(--devir-roxo);
     --bs-btn-active-border-color: var(--devir-roxo);
     --bs-btn-focus-shadow-rgb: 78, 73, 105;
+}
 
-    /* Botão de acesso à recepção */
-.btn-devir {
-    --bs-btn-color: #fff;
-    --bs-btn-bg: var(--devir-roxo);
-    --bs-btn-border-color: var(--devir-roxo);
-    --bs-btn-hover-color: #fff;
-    --bs-btn-hover-bg: #3c3753;
-    --bs-btn-hover-border-color: #3c3753;
-    --bs-btn-active-color: #fff;
-    --bs-btn-active-bg: #3c3753;
-    --bs-btn-active-border-color: #3c3753;
-    --bs-btn-focus-shadow-rgb: 78, 73, 105;
+/* Login e recepção */
+#login,
+#recepcao {
+    min-height: 70vh;
+}
+
+.painel-numero {
+    background-color: #fff;
+    border: 1px solid var(--devir-borda);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+}
+
+.painel-numero span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--devir-roxo);
+    line-height: 1.2;
+}
+
+.painel-numero small {
+    color: #6c6875;
+}
+
+.lista-cadastro {
+    max-height: 560px;
+    overflow-y: auto;
+}
+
+.lista-cadastro .list-group-item {
+    font-size: 0.95rem;
+}
+
+/* Abas da recepção */
+.abas-recepcao .nav-link {
+    color: var(--devir-roxo);
+}
+
+.abas-recepcao .nav-link.active {
+    font-weight: 700;
+    color: var(--devir-roxo);
+    border-top: 3px solid var(--devir-roxo);
+}
+
+/* Agenda multidisciplinar */
+.agenda-grade {
+    max-height: 640px;
+    overflow: auto;
+}
+
+.agenda-grade table {
+    min-width: 640px;
+    background-color: #fff;
+}
+
+.agenda-grade thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #fff;
+    min-width: 170px;
+    vertical-align: top;
+}
+
+.agenda-grade .coluna-hora {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 80px;
+    min-width: 80px;
+    background-color: var(--devir-fundo);
+    color: var(--devir-roxo);
+    text-align: center;
+}
+
+.agenda-grade thead .coluna-hora {
+    z-index: 3;
+}
+
+.agenda-grade td {
+    height: 56px;
+    font-size: 0.9rem;
+}
+
+.celula-ocupada {
+    background-color: #eeecf4 !important;
+    border-left: 4px solid var(--devir-roxo) !important;
+}
+
+.celula-ocupada.concluida {
+    background-color: #e8f4ec !important;
+    border-left-color: #198754 !important;
+}
+
+.celula-passada {
+    background-color: #f6f5f3 !important;
+}
+
+.btn-livre {
+    width: 100%;
+    height: 56px;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0.85rem;
+}
+
+.btn-livre:hover,
+.btn-livre:focus-visible {
+    background-color: var(--devir-fundo);
+    color: var(--devir-roxo);
+    outline: 2px dashed var(--devir-borda);
+    outline-offset: -4px;
+}
+
+.botao-agendar {
+    margin-top: 32px;
+}
+
+.table thead th {
+    color: var(--devir-roxo);
+    white-space: nowrap;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: var(--devir-roxo);
+    box-shadow: 0 0 0 0.2rem rgba(78, 73, 105, 0.25);
+}
+
+.form-check-input:checked {
+    background-color: var(--devir-roxo);
+    border-color: var(--devir-roxo);
 }
 
 /* Menu recolhido em celulares e tablets */
 @media (max-width: 1199.98px) {
     .navbar-brand img {
-        width: 100px;
+        height: 44px;
     }
 
     #menuPrincipal .navbar-nav {
@@ -124,9 +323,98 @@ header {
     }
 }
 
+/* Botão de agendar abaixo dos campos em telas médias */
+@media (max-width: 991.98px) {
+    /* Abas da recepção */
+.abas-recepcao .nav-link {
+    color: var(--devir-roxo);
+}
+
+.abas-recepcao .nav-link.active {
+    font-weight: 700;
+    color: var(--devir-roxo);
+    border-top: 3px solid var(--devir-roxo);
+}
+
+/* Agenda multidisciplinar */
+.agenda-grade {
+    max-height: 640px;
+    overflow: auto;
+}
+
+.agenda-grade table {
+    min-width: 640px;
+    background-color: #fff;
+}
+
+.agenda-grade thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #fff;
+    min-width: 170px;
+    vertical-align: top;
+}
+
+.agenda-grade .coluna-hora {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 80px;
+    min-width: 80px;
+    background-color: var(--devir-fundo);
+    color: var(--devir-roxo);
+    text-align: center;
+}
+
+.agenda-grade thead .coluna-hora {
+    z-index: 3;
+}
+
+.agenda-grade td {
+    height: 56px;
+    font-size: 0.9rem;
+}
+
+.celula-ocupada {
+    background-color: #eeecf4 !important;
+    border-left: 4px solid var(--devir-roxo) !important;
+}
+
+.celula-ocupada.concluida {
+    background-color: #e8f4ec !important;
+    border-left-color: #198754 !important;
+}
+
+.celula-passada {
+    background-color: #f6f5f3 !important;
+}
+
+.btn-livre {
+    width: 100%;
+    height: 56px;
+    border: 0;
+    background: transparent;
+    color: transparent;
+    font-size: 0.85rem;
+}
+
+.btn-livre:hover,
+.btn-livre:focus-visible {
+    background-color: var(--devir-fundo);
+    color: var(--devir-roxo);
+    outline: 2px dashed var(--devir-borda);
+    outline-offset: -4px;
+}
+
+.botao-agendar {
+        margin-top: 0;
+    }
+}
+
 /* Ajustes de leitura e espaço em telas pequenas */
 @media (max-width: 767.98px) {
-    main > section.py-5 {
+    main section.py-5 {
         padding-top: 32px !important;
         padding-bottom: 32px !important;
     }
@@ -146,10 +434,98 @@ header {
         width: 100%;
     }
 }
-}
 
 /* Rodapé */
 footer {
     color: var(--devir-roxo);
     background-color: var(--devir-fundo);
+}
+
+/* Calendário do mês */
+.calendario-mes {
+    table-layout: fixed;
+    min-width: 640px;
+    background-color: #fff;
+}
+
+.calendario-mes thead th {
+    text-align: center;
+    color: var(--devir-roxo);
+    background-color: var(--devir-fundo);
+}
+
+.calendario-mes td {
+    height: 112px;
+    padding: 0;
+    vertical-align: top;
+}
+
+.calendario-mes td.fora-do-mes {
+    background-color: #f6f5f3;
+}
+
+.dia-mes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    width: 100%;
+    height: 100%;
+    min-height: 112px;
+    padding: 6px 8px;
+    border: 0;
+    background: transparent;
+    text-align: left;
+    color: var(--devir-texto);
+}
+
+.dia-mes:hover,
+.dia-mes:focus-visible {
+    background-color: var(--devir-fundo);
+    outline: 2px solid var(--devir-roxo);
+    outline-offset: -2px;
+}
+
+.dia-mes .numero {
+    align-self: flex-start;
+    font-weight: 700;
+    color: var(--devir-roxo);
+}
+
+.dia-mes.hoje .numero {
+    display: inline-block;
+    min-width: 26px;
+    border-radius: 13px;
+    background-color: var(--devir-roxo);
+    color: #fff;
+    text-align: center;
+}
+
+.dia-mes .item {
+    display: block;
+    overflow: hidden;
+    margin-top: 2px;
+    padding: 0 4px;
+    border-left: 3px solid var(--devir-roxo);
+    border-radius: 3px;
+    background-color: #eeecf4;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.dia-mes .item.concluida {
+    border-left-color: #198754;
+    background-color: #e8f4ec;
+}
+
+.dia-mes .mais {
+    font-size: 0.75rem;
+    color: #6c6875;
+}
+
+/* Links "Concluir" e "Reabrir" dentro da agenda */
+.agenda-grade .btn-link {
+    color: var(--devir-roxo);
+    font-weight: 600;
 }
